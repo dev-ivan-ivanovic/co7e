@@ -1,0 +1,510 @@
+/******************************************************************************
+MIT License
+
+The "co7e" is open-source, full stack Single Page Application(SPA) web framework with focus on Rapid Application Development(RAD) designed to be practical, lightweight, efficient, fast, secure and easy to learn.
+
+Copyright (c) 2021 Ivan Ivanovic
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+******************************************************************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Ubuntu:wght@300&display=swap');
+
+:root {
+    --co7e-background-image: url("co7e/color-2174045_1280.png");
+    --co7e-margin: 12px;
+    --co7e-padding: 12px;
+    --co7e-large-margin: 24px;
+    --co7e-border-radius: 8px;
+    --co7e-border-radius-large: 25px;
+    --co7e-lite-box-shadow: 0 0 8px #00000040;
+    --co7e-box-shadow: 0 0 8px #00000080;
+    --co7e-lite-box-shadow: 0 0 8px #00000040;
+    --co7e-lite-text-shadow: 2px 2px 4px #00000040;
+    --co7e-border: 2px solid #ffffffcc;
+    --co7e-border-thick: 5px solid #ffffffcc;
+    --co7e-background: #ffffffcc;
+    --co7e-sidebar-width: 360px;
+    --co7e-blue-gradient: linear-gradient(0deg, #393a8fcc 0%, #7b7de7cc 100%);
+    --co7e-opacity: 0.7;
+    --co7e-hover: #eeeeeecc;
+    --co7e-border-active: 2px solid #00baff;
+}
+
+/***********************************
+GENERIC
+***********************************/
+body, 
+body * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #444;
+    font-size: 18px;
+    font-family: 'Ubuntu', sans-serif;
+    user-select: none;
+}
+    
+body {
+    padding: var(--co7e-padding);
+    background-image: var(--co7e-background-image);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body > h1 {
+    color: #fff;
+    font-family: 'Righteous', cursive;
+}
+
+body > h1 > span:nth-child(1) {
+    color: #fff;
+    font-family: 'Righteous', cursive;
+    font-size: 0.5em;
+    margin-left: var(--co7e-margin);
+}
+
+sub, sup {
+    font-size: 0.7em;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+h1, 
+h2,
+h3, 
+h4 {
+    margin-bottom: var(--co7e-large-margin);
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.7em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.3em;
+}
+
+img {
+    border-radius: var(--co7e-border-radius);
+    box-shadow: var(--co7e-box-shadow);
+    border: var(--co7e-border);
+}
+
+label {
+    display: block;
+}
+
+textarea {
+    resize: none;
+    height: 250px;
+}
+
+input, 
+textarea, 
+select, 
+button {
+    width: 100%;
+    border: var(--co7e-border);
+    border-radius: var(--co7e-border-radius);
+    padding: var(--co7e-padding);
+    margin-top: 4px;
+    margin-bottom: var(--co7e-margin);
+    box-shadow: var(--co7e-lite-box-shadow);
+    transition: 1s;
+}
+
+input:hover,
+textarea:hover,
+select:hover,
+button:hover {
+    border: var(--co7e-border-active);
+    outline: none;
+    box-shadow: var(--co7e-box-shadow);
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+    border: var(--co7e-border-active);
+    outline: none;
+    box-shadow: var(--co7e-box-shadow);
+}
+
+button:focus {
+    border: var(--co7e-border-active);
+    outline: none;
+    box-shadow: var(--co7e-box-shadow);
+}
+
+button {
+    color: #fff;
+    background: var(--co7e-blue-gradient);
+    box-shadow: var(--co7e-box-shadow);
+}
+
+button:hover {
+    border: var(--co7e-border-active);
+    outline: none;
+    box-shadow: var(--co7e-box-shadow);
+}
+
+button:active {
+    opacity: var(--co7e-opacity);
+}
+
+button.co7e-no-style {
+    width: unset;
+    border: unset;
+    border-radius: unset;
+    padding: var(--co7e-padding);
+    margin-top: unset;
+    margin-bottom: unset;
+    transition: 1s;
+    color: unset;
+    background: unset;
+    box-shadow: unset;
+}
+
+button.co7e-no-style:hover {
+    border: unset;
+    outline: unset;
+    box-shadow: unset;
+}
+
+button.co7e-no-style:active {
+    opacity: var(--co7e-opacity);
+}
+
+.button.co7e-no-style:focus {
+    border: unset;
+    outline: unset;
+    box-shadow: unset;
+}
+
+
+.far:active, 
+.fas:active, 
+.fab:active {
+    opacity: var(--co7e-opacity);
+}
+
+/***********************************
+INPUT[TYPE=FILE]
+***********************************/
+input[type=file]::-webkit-file-upload-button {
+    color: #fff;
+    background: var(--co7e-blue-gradient);
+    box-shadow: var(--co7e-box-shadow);
+    border: var(--co7e-border);
+    padding: var(--co7e-padding);
+    border-radius: var(--co7e-border-radius);
+    transition: 1s;
+}
+
+input[type=file]::file-selector-button {
+    color: #fff;
+    background: var(--co7e-blue-gradient);
+    box-shadow: var(--co7e-box-shadow);
+    border: var(--co7e-border);
+    padding: var(--co7e-padding);
+    border-radius: var(--co7e-border-radius);
+    transition: 1s;
+}
+
+input[type=file]::-webkit-file-upload-button:focus {
+    border: var(--co7e-border-active);
+    outline: none;
+    box-shadow: var(--co7e-box-shadow);
+}
+
+input[type=file]::file-selector-button:focus {
+    border: var(--co7e-border-active);
+    outline: none;
+    box-shadow: var(--co7e-box-shadow);
+}
+
+input[type=file]::-webkit-file-upload-button:active {
+    opacity: var(--co7e-opacity);
+}
+
+input[type=file]::file-selector-button:active {
+    opacity: var(--co7e-opacity);
+}
+
+input[type=file]::-webkit-file-upload-button:hover {
+    border: var(--co7e-border-active);
+    outline: none;
+    box-shadow: var(--co7e-box-shadow);
+}
+
+input[type=file]::file-selector-button:hover {
+    border: var(--co7e-border-active);
+    outline: none;
+    box-shadow: var(--co7e-box-shadow);
+}
+
+/***********************************
+CONTAINERS
+***********************************/
+.co7e-container {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    border-radius: var(--co7e-border-radius);
+    border: var(--co7e-border);
+    box-shadow: var(--co7e-box-shadow);
+    background: var(--co7e-background);
+    padding: var(--co7e-padding);
+    margin: var(--co7e-large-margin) 0;
+}
+
+.co7e-container > div:nth-child(1) {
+    width: 100%;
+    padding: var(--co7e-padding);
+}
+
+.co7e-container > div:nth-child(1) > * {
+    margin-right: var(--co7e-margin);
+}
+
+.co7e-container > div:nth-child(1)::before {
+    content: "co7e\2122";
+    font-family: 'Righteous', cursive;
+    margin-right: var(--co7e-margin);
+}
+
+.co7e-container > div:nth-child(2) {
+    width: var(--co7e-sidebar-width);
+    padding: var(--co7e-padding);
+    height: 100vh;
+    overflow: auto;
+}
+
+.co7e-container > div:nth-child(3) {
+    width: calc(100% - var(--co7e-sidebar-width));
+    padding: var(--co7e-padding);
+    height: 100vh;
+    overflow: auto;
+}
+
+.co7e-container.co7e-collapsed > div:nth-child(2) {
+   display: none; 
+}
+
+.co7e-container.co7e-collapsed > div:nth-child(3) {
+    width: 100%;
+}
+
+/***********************************
+LISTS
+***********************************/
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: var(--co7e-large-margin) 0;  
+}
+    
+li {
+    background: var(--co7e-background);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: var(--co7e-padding);
+    margin: var(--co7e-margin) 0;
+    border: var(--co7e-border);
+    border-radius: var(--co7e-border-radius);
+    box-shadow: var(--co7e-box-shadow);
+    transition: 1s;
+}
+
+li:hover {
+    background: var(--co7e-hover);
+    border: var(--co7e-border-active);
+    outline: none;
+    box-shadow: var(--co7e-box-shadow);
+}
+
+/***********************************
+LAYOUTS
+***********************************/
+.co7e-vertical-layout {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.co7e-vertical-layout > :first-child {
+    margin-bottom: var(--co7e-margin);
+}
+
+/***********************************
+FORMS
+***********************************/
+form {
+    width: 600px;
+    max-width: 100%;
+    margin: var(--co7e-large-margin) auto;
+    border-radius: var(--co7e-border-radius);
+    border: var(--co7e-border);
+    box-shadow: var(--co7e-box-shadow);
+    background: var(--co7e-background);
+    padding: var(--co7e-padding);
+}
+
+form.co7e-no-style {
+    width: unset;
+    max-width: unset;
+    margin: unset;
+    border-radius: unset;
+    border: unset;
+    box-shadow: unset;
+    background: unset;
+    padding: unset;
+}
+
+form.co7e-li-style {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+}
+
+/***********************************
+VIEWS
+***********************************/
+[data-co7e-view] {
+    display: none;
+}
+
+[data-co7e-view].co7e-show {
+    display: block;
+}
+
+/***********************************
+PROGRESS BARS
+***********************************/
+progress {
+    -webkit-appearance: none;
+    margin-bottom: var(--co7e-margin);
+    width: 100%;
+    height: 25px;
+    box-shadow: var(--co7e-lite-box-shadow);
+    border-radius: var(--co7e-border-radius-large);
+    border: var(--co7e-border-thick); 
+}
+
+::-moz-progress-bar {
+    background: var(--co7e-blue-gradient);
+    border-radius: var(--co7e-border-radius-large);
+}
+
+::-webkit-progress-bar {
+    background: #eee;
+    border-radius: var(--co7e-border-radius-large);
+}
+
+::-webkit-progress-value {
+    background: var(--co7e-blue-gradient);
+    border-radius: var(--co7e-border-radius-large);
+}
+
+::-webkit-progress-inner-element {
+    border-radius: var(--co7e-border-radius-large);
+}
+
+/***********************************
+DROP-ZONE
+***********************************/
+[data-co7e-drop-zone] {
+    height: 300px;
+    border: 5px dashed #ccc;
+    margin: 24px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+[data-co7e-drop-zone] i {
+    color: #ccc;
+    text-shadow: var(--co7e-lite-text-shadow);
+}
+
+/***********************************
+SUPERUSER AREA
+***********************************/
+[data-co7e-superuser-area] {
+    display: none;
+}
+
+[data-co7e-superuser-area].co7e-show {
+    display: initial;
+}
+
+/***********************************
+MEMBER AREA
+***********************************/
+[data-co7e-member-area] {
+    display: none;
+}
+
+[data-co7e-member-area].co7e-show {
+    display: initial;
+}
+/***********************************
+RESPONSIVE
+***********************************/
+@media only screen and (max-width: 600px) {
+    img {
+        width: 100%;
+        height: auto;
+    }
+    
+    form.co7e-li-style > *, 
+    li > * {
+        width: 100%;
+        height: auto;
+        margin-bottom: var(--co7e-margin);
+        text-align: center;
+    }
+
+    .co7e-container > div:nth-child(3) {
+        display: none;
+    }
+    
+    .co7e-container.co7e-collapsed > div:nth-child(3) {
+       display: block;
+    }
+}
