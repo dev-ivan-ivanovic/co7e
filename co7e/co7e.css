@@ -127,6 +127,12 @@ textarea {
     height: 250px;
 }
 
+input,
+textarea,
+select {
+    user-select: text;
+}
+
 input, 
 textarea, 
 select, 
